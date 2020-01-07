@@ -26,6 +26,7 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         initComponents();
         setLocationRelativeTo(null); //Centra la finestra
+        this.setTitle("Calcola obiettivo media");
     }
 
     /**
