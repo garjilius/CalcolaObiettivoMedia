@@ -6,7 +6,8 @@
 package com.emanuelegargiulo.calcolaobiettivomedia;
 
 /**
- *
+ * Astrazione dello stato generale di una carriera studente. 
+ * Informazioni limitate a quelle utili al calcolo della media da mantenere
  * @author emanuelegargiulo
  */
 public class Carriera {

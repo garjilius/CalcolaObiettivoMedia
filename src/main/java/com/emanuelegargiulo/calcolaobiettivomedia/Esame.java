@@ -6,7 +6,8 @@
 package com.emanuelegargiulo.calcolaobiettivomedia;
 
 /**
- *
+ * Astrazione dello stato generale di un esame universitario. 
+ * Informazioni limitate a quelle utili al calcolo della media da mantenere
  * @author emanuelegargiulo
  */
 public class Esame {

@@ -12,28 +12,20 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 /**
- *
+ * Finestra principale dell'applicazione
  * @author emanuelegargiulo
  */
 public class MainWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form MainWindow
+     * Creates new Main Window
      */
     public MainWindow() {
         initComponents();
-        setLocationRelativeTo(null);
-        examTable.getModel().addTableModelListener(new TableModelListener() {
-            public void tableChanged(TableModelEvent e) {
-                  //Unused at the moment
-            }
-        });
+        setLocationRelativeTo(null); //Centra la finestra
     }
 
     /**
@@ -313,6 +305,9 @@ public class MainWindow extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Calcola la media da mantenere sui futuri esami per raggiungere l'obiettivo di media ponderata prefissato
+     */
     private void calculateRemainingAvg() {
         int CFUTot = 0;
         int CFUCurr = 0;
@@ -348,20 +343,17 @@ public class MainWindow extends javax.swing.JFrame {
 
     }
 
-    private void checkFields() throws CampoVuotoException {
-        if (CFUTotField.getText() == null || CFUCurrField.getText() == null || MediaAttField.getText() == null || MediaTargetField == null) {
-            throw new CampoVuotoException("Verifica di aver riempito tutti i campi!");
-        }
-    }
-
+    /**
+     * Recupera i valori degli esami inseriti dall'utente all'interno della tabella
+     * @param table
+     * @return 
+     */
     public ArrayList<Esame> retrieveTableValues(JTable table) {
         ArrayList<Esame> toReturn = new ArrayList<>();
         TableModel model = table.getModel();
 
         for (int i = 0; i < model.getRowCount(); i++) {
             if ((model.getValueAt(i, 1) != null) && (model.getValueAt(i, 2) != null) && (model.getValueAt(i, 0) != null)) {
-                //System.out.println(model.getValueAt(i, 1).toString() + " " + model.getValueAt(i, 2).toString());
-                //int voto = Integer.parseInt(model.getValueAt(i, 2).toString());
                 String cfuS = model.getValueAt(i, 1).toString();
                 String votoS = model.getValueAt(i, 2).toString();
                 int cfu = Integer.parseInt(cfuS);
@@ -372,25 +364,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
         return toReturn;
     }
-
-    /**
-     * Returns the real number of non-empty rows
-     *
-     * @param table
-     * @return
-     */
-    private int getNRows(JTable table) {
-        int teoricalRows = table.getRowCount();
-        int realRows = 0;
-        for (int i = 0; i < teoricalRows; i++) {
-            if ((table.getValueAt(i, 1) != null) && (table.getValueAt(i, 2) != null)) {
-                realRows++;
-            }
-        }
-        System.out.println(realRows);
-        return realRows;
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CFUCurrField;

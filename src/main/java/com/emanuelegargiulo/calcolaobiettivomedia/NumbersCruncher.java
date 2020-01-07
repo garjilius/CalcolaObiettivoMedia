@@ -6,7 +6,7 @@
 package com.emanuelegargiulo.calcolaobiettivomedia;
 
 /**
- *
+ * Gestisce l'unico vero calcolo necessario all'applicazione. 
  * @author emanuelegargiulo
  */
 public class NumbersCruncher {
@@ -15,7 +15,7 @@ public class NumbersCruncher {
         double puntiTarget = car.CFUtotali * car.getMediaDesiderata();
         double puntiRimanenti = puntiTarget - (car.getCFUconseguti() * car.getMediaPonderata());
         double mediaNecessaria = puntiRimanenti / (car.CFUtotali - car.CFUconseguti);
-        
+       
         return mediaNecessaria;
     }
    
