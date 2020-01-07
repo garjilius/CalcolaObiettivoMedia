@@ -22,7 +22,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.emanuelegargiulo.calcolavoto.MainWindow</mainClass>
+                            <mainClass>com.emanuelegargiulo.calcolaobiettivomedia.MainWindow</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
