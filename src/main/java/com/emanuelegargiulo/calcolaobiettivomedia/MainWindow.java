@@ -45,12 +45,12 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         MediaAttField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        MediaTargetField = new javax.swing.JTextField();
+        VotoTargetField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         examTable = new javax.swing.JTable();
         CalcolaButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        startVoteField = new javax.swing.JTextField();
+        finalAvgField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         resultAvgField = new javax.swing.JTextField();
@@ -82,11 +82,11 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Media Finale Target");
+        jLabel4.setText("Voto Partenza Target");
 
-        MediaTargetField.addActionListener(new java.awt.event.ActionListener() {
+        VotoTargetField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MediaTargetFieldActionPerformed(evt);
+                VotoTargetFieldActionPerformed(evt);
             }
         });
 
@@ -166,16 +166,16 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel5.setText("Media ponderata da mantenere sugli esami restanti ");
 
-        startVoteField.setEditable(false);
-        startVoteField.addActionListener(new java.awt.event.ActionListener() {
+        finalAvgField.setEditable(false);
+        finalAvgField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                startVoteFieldActionPerformed(evt);
+                finalAvgFieldActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Puoi aggiungere degli esami per calcolare come varierebbe la situazione ottenendo determinati risultati");
 
-        jLabel7.setText("Voto di partenza, esclusi bonus");
+        jLabel7.setText("Media finale risultante");
 
         resultAvgField.setEditable(false);
         resultAvgField.addActionListener(new java.awt.event.ActionListener() {
@@ -191,39 +191,35 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CFUTotField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CFUCurrField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MediaAttField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MediaTargetField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(CalcolaButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(121, 121, 121)
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(startVoteField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(resultAvgField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jLabel6)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(CalcolaButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(CFUTotField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(32, 32, 32)
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(CFUCurrField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(32, 32, 32)
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(MediaAttField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(32, 32, 32)
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(VotoTargetField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(finalAvgField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(resultAvgField, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -238,7 +234,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(MediaAttField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(MediaTargetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(VotoTargetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -249,7 +245,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(resultAvgField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(startVoteField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(finalAvgField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CalcolaButton1)
@@ -271,17 +267,17 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MediaAttFieldActionPerformed
 
-    private void MediaTargetFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MediaTargetFieldActionPerformed
+    private void VotoTargetFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VotoTargetFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MediaTargetFieldActionPerformed
+    }//GEN-LAST:event_VotoTargetFieldActionPerformed
 
     private void CalcolaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcolaButton1ActionPerformed
         calculateRemainingAvg();
     }//GEN-LAST:event_CalcolaButton1ActionPerformed
 
-    private void startVoteFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startVoteFieldActionPerformed
+    private void finalAvgFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalAvgFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_startVoteFieldActionPerformed
+    }//GEN-LAST:event_finalAvgFieldActionPerformed
 
     private void resultAvgFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultAvgFieldActionPerformed
         // TODO add your handling code here:
@@ -315,6 +311,7 @@ public class MainWindow extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        System.out.println(NumbersCruncher.mpFromStartingVote(104));
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -341,7 +338,8 @@ public class MainWindow extends javax.swing.JFrame {
         int CFUCurr = 0;
         double mediaAttuale = 0;
         double mediaTarget = 0;
-
+        int votoTarget = 0;
+        
         try {
             CFUTot = Integer.parseInt(CFUTotField.getText());
             CFUCurr = Integer.parseInt(CFUCurrField.getText());
@@ -351,7 +349,8 @@ public class MainWindow extends javax.swing.JFrame {
 
         try {
             mediaAttuale = Double.parseDouble(MediaAttField.getText());
-            mediaTarget = Double.parseDouble(MediaTargetField.getText());
+            votoTarget = Integer.parseInt(VotoTargetField.getText());
+            mediaTarget = NumbersCruncher.mpFromStartingVote(votoTarget);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Controlla di aver inserito numeri in un formato valido per la media");
         }
@@ -363,12 +362,13 @@ public class MainWindow extends javax.swing.JFrame {
             mediaAttuale = mediaAttuale + ((esame.getVoto() - mediaAttuale) / CFUCurr);    
         }
         
+        
         System.out.println("CFU TOTALI : " + CFUTot + "\n CFU Correnti: " + CFUCurr + "\n Media Attuale: " + mediaAttuale + "\n MediaTarget: " + mediaTarget);
         Carriera carriera = new Carriera(mediaAttuale, mediaTarget, CFUTot, CFUCurr);
         double targetAverage = NumbersCruncher.getTargetAvg(carriera);
         System.out.println("TargetAverage: " + targetAverage);
         resultAvgField.setText(String.format("%.2f", targetAverage));
-        startVoteField.setText(NumbersCruncher.getStartVote(mediaTarget)+"");
+        finalAvgField.setText(String.format("%.2f", mediaTarget));
     }
 
     /**
@@ -398,8 +398,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField CFUTotField;
     private javax.swing.JButton CalcolaButton1;
     private javax.swing.JTextField MediaAttField;
-    private javax.swing.JTextField MediaTargetField;
+    private javax.swing.JTextField VotoTargetField;
     private javax.swing.JTable examTable;
+    private javax.swing.JTextField finalAvgField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -409,6 +410,5 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField resultAvgField;
-    private javax.swing.JTextField startVoteField;
     // End of variables declaration//GEN-END:variables
 }

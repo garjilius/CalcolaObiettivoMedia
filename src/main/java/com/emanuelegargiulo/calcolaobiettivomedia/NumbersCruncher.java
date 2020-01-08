@@ -26,8 +26,16 @@ public class NumbersCruncher {
     }
     
     
-    public static int mpFromStartingVote() {
-        return 0;
+    public static double mpFromStartingVote(int sv) {  
+        double startingVote = sv;
+        double mediaP = (startingVote * 30) / 110;
+        
+        while ((Math.round((mediaP*110)/30)) >= startingVote) {
+           // System.out.println((Math.round(mediaP *110) / 30));
+            mediaP -= 0.01;
+            //System.out.println(mediaP);
+        }
+        return mediaP+0.01;
     }
 
 }
